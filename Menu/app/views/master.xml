@@ -1,0 +1,33 @@
+<Alloy>
+	<Window id="masterWindow">
+			
+		<!-- iOS header -->
+		<RightNavButton>
+			<Button id="btnMenu"></Button>
+		</RightNavButton>
+		<!-- iOS header -->
+		
+		<!-- Android header -->
+		<View id="header">
+			<ImageView id="imgPlaceHolder"></ImageView>
+			<Button id="btnAndroidMenu"></Button>
+		</View>
+		
+		<View id="headerBottomBorder">
+		</View>
+		<!-- Android header -->
+		
+		<Widget id="menuWidget" src="menu" />
+		
+		<!--  Container for landing page-->
+		<View id="windowContainer" backgroundColor="orange">
+			<View>
+				<Label id="lblDefault" text="Default Landing View"></Label>
+			</View>
+		</View>
+		
+		<View id="genericContainer">	
+		</View>
+		
+	</Window>
+</Alloy>

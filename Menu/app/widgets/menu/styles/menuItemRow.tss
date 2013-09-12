@@ -1,0 +1,8 @@
+"Label": {
+	color: "white",
+	left: 50
+},
+"ImageView": {
+	width: 30,
+	left: 10
+}

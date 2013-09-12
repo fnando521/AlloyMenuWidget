@@ -1,0 +1,19 @@
+
+"TableView": {
+	minRowHeight: 52,
+	backgroundColor: "gray",
+	separatorColor: "#4f4f4f",
+	right: 5,
+	width: 220,
+	zIndex: 2001
+},
+"View": {
+	height: 0,
+	zIndex: 2001
+},
+"View[platform=ios]": {
+	top: 0
+},
+"View[platform=android]": {
+	top: '-219'
+}

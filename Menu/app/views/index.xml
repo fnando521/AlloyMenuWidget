@@ -1,0 +1,16 @@
+<Alloy>
+
+	<!-- iPhone && iPad -->
+	<Window id="index" platform="ios">
+	    <NavigationGroup id="navGroup">
+	        <Require src="master" id="master"/>
+	    </NavigationGroup>
+   	</Window>
+  
+  	<!-- Android -->
+    <Require id="master" src="master" platform="android"/>
+
+</Alloy>
+
+	
+	

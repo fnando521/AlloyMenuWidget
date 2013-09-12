@@ -1,0 +1,26 @@
+".container": {
+	backgroundColor:"white"
+},
+"Label": {
+	color: "white",
+	left: 50
+},
+"ImageView": {
+	image: "/images/help.png",
+	width: 30,
+	left: 10
+},
+"TableView": {
+	minRowHeight: "52",
+	backgroundColor: "gray",
+	separatorColor: "#4f4f4f",
+	right: 5,
+	width: 220
+},
+"View": {
+	top: "0",
+	height: "0"
+},
+"#btnMenu": {
+	image: "/images/menuDown.png"
+}

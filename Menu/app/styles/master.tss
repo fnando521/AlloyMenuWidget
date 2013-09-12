@@ -1,0 +1,52 @@
+"Window": {
+	backgroundImage: "/images/main-bg.gif",
+	backgroundRepeat: "true",
+	titleImage: "",
+	barColor: "white",
+	modal: false,
+	exitOnClose: true
+},
+"Window[platform=android]": {
+	navBarHidden: true
+},
+"#btnMenu": {
+	width: 25,
+	height: 25,
+	backgroundImage: "/images/menu.png",
+	backgroundSelectedImage: "/images/menuSelected.png"
+},
+"#header[platform=android]": {
+	top: 0,
+	height: 60,
+	backgroundColor: "white",
+	zIndex: 2000
+},
+"#headerBottomBorder[platform=android]":{
+	top: 61,
+	borderColor: "red",
+	borderWidth: 1,
+	height: 2,
+	zIndex: 2000
+},
+"#imgPlaceHolder[platform=android]": {
+	image: ""
+},
+"#btnAndroidMenu[platform=android]": {
+	top: 10,
+	right: 10,
+	width: 40,
+	height: 40,
+	backgroundImage: "/images/menu.png",
+	backgroundSelectedImage: "/images/menuSelected.png"
+},
+"#btnAndroidMenu[platform=ios]": {
+	visible: false
+},
+"#windowContainer[platform=ios]": {
+},
+"#windowContainer[platform=android]": {
+	top: 63
+},
+"#genericContainer": {
+	visible: false
+}

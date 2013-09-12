@@ -1,0 +1,7 @@
+<Alloy>
+	<Window id="link1Win" modal="true" backgroundColor="blue">
+		<RightNavButton>
+			<Button id="btnClose" title="Done"></Button>
+		</RightNavButton>
+	</Window>
+</Alloy>
