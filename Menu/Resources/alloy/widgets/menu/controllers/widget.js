@@ -1,20 +1,23 @@
 function WPATH(s) {
     var index = s.lastIndexOf("/");
     var path = -1 === index ? "menu/" + s : s.substring(0, index) + "/menu/" + s.substring(index + 1);
-    return true && 0 !== path.indexOf("/") ? "/" + path : path;
+    return path;
 }
 
 function Controller() {
     var Widget = new (require("alloy/widget"))("menu");
+    this.__widgetId = "menu";
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
+    this.__controllerPath = "widget";
     arguments[0] ? arguments[0]["__parentSymbol"] : null;
     arguments[0] ? arguments[0]["$model"] : null;
+    arguments[0] ? arguments[0]["__itemTemplate"] : null;
     var $ = this;
     var exports = {};
     $.__views.menuView = Ti.UI.createView({
         height: 0,
         zIndex: 2001,
-        top: "-219",
+        top: 0,
         id: "menuView"
     });
     $.__views.menuView && $.addTopLevelView($.__views.menuView);
@@ -34,11 +37,11 @@ function Controller() {
     var buttonId = "";
     var totalItems = 0;
     var openAnimation = Ti.UI.createAnimation({
-        top: 63,
+        top: 0,
         duration: 200
     });
     var closeAnimation = Ti.UI.createAnimation({
-        top: -219,
+        top: -240,
         duration: 200
     });
     $.init = function(args) {
@@ -66,14 +69,14 @@ function Controller() {
         });
     };
     exports.openMenu = function() {
-        var rowHeight = 52;
+        var rowHeight = $.tblMenu.getMinRowHeight();
         $.menuView.height = rowHeight * totalItems;
         $.menuView.setZIndex = 2001;
         $.menuView.animate(openAnimation);
         menuOpen = true;
     };
     exports.closeMenu = function() {
-        var rowHeight = 52;
+        var rowHeight = $.tblMenu.getMinRowHeight();
         $.menuView.height = rowHeight * totalItems;
         $.menuView.setZIndex = 2001;
         $.menuView.animate(closeAnimation);

@@ -1,11 +1,11 @@
 <Alloy>
 
 	<!-- iPhone && iPad -->
-	<Window id="index" platform="ios">
-	    <NavigationGroup id="navGroup">
+	<!--<Window id="index" platform="ios">-->
+	    <NavigationWindow id="navGroup" platform="ios">
 	        <Require src="master" id="master"/>
-	    </NavigationGroup>
-   	</Window>
+		 </NavigationWindow>
+   	<!--</Window>-->
   
   	<!-- Android -->
     <Require id="master" src="master" platform="android"/>

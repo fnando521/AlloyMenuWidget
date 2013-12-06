@@ -1,5 +1,1 @@
-module.exports = {
-    dependencies: {
-        menu: "1.0"
-    }
-};
+module.exports={"dependencies":{"menu":"1.0"}};

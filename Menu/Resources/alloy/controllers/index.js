@@ -1,16 +1,26 @@
 function Controller() {
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
+    this.__controllerPath = "index";
     arguments[0] ? arguments[0]["__parentSymbol"] : null;
     arguments[0] ? arguments[0]["$model"] : null;
+    arguments[0] ? arguments[0]["__itemTemplate"] : null;
     var $ = this;
     var exports = {};
     $.__views.master = Alloy.createController("master", {
         id: "master"
     });
-    $.__views.master && $.addTopLevelView($.__views.master);
+    $.__views.navGroup = Ti.UI.iOS.createNavigationWindow({
+        window: $.__views.master.getViewEx({
+            recurse: true
+        }),
+        id: "navGroup"
+    });
+    $.__views.navGroup && $.addTopLevelView($.__views.navGroup);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    $.master.getView().open();
+    Ti.API.info("Running");
+    Alloy.Globals.navGroup = $.navGroup;
+    $.navGroup.open();
     _.extend($, exports);
 }
 

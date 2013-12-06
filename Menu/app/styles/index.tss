@@ -1,6 +1,3 @@
-".container": {
-	backgroundColor:"white"
-},
 "Label": {
 	color: "white",
 	left: 50

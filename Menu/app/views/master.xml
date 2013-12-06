@@ -20,7 +20,7 @@
 		<Widget id="menuWidget" src="menu" />
 		
 		<!--  Container for landing page-->
-		<View id="windowContainer" backgroundColor="orange">
+		<View id="windowContainer">
 			<View>
 				<Label id="lblDefault" text="Default Landing View"></Label>
 			</View>

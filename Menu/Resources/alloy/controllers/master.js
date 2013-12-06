@@ -35,7 +35,7 @@ function Controller() {
         } ];
         $.menuWidget.init({
             MenuLinks: menuData,
-            buttonId: $.btnAndroidMenu
+            buttonId: $.btnMenu
         });
     }
     function loadLinkItem() {
@@ -50,14 +50,16 @@ function Controller() {
             $.genericContainer.setVisible(true);
         } else {
             ctrlWindow = Alloy.createController(this.ctrlName).getView();
-            this.openInNavGroup && false ? Alloy.Globals.navGroup.open(ctrlWindow, {
+            this.openInNavGroup && true ? Alloy.Globals.navGroup.open(ctrlWindow, {
                 animated: true
             }) : ctrlWindow.open();
         }
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
+    this.__controllerPath = "master";
     arguments[0] ? arguments[0]["__parentSymbol"] : null;
     arguments[0] ? arguments[0]["$model"] : null;
+    arguments[0] ? arguments[0]["__itemTemplate"] : null;
     var $ = this;
     var exports = {};
     $.__views.masterWindow = Ti.UI.createWindow({
@@ -67,7 +69,6 @@ function Controller() {
         barColor: "white",
         modal: false,
         exitOnClose: true,
-        navBarHidden: true,
         id: "masterWindow"
     });
     $.__views.masterWindow && $.addTopLevelView($.__views.masterWindow);
@@ -80,34 +81,19 @@ function Controller() {
     });
     $.__views.masterWindow.rightNavButton = $.__views.btnMenu;
     $.__views.header = Ti.UI.createView({
-        top: 0,
-        height: 60,
-        backgroundColor: "white",
-        zIndex: 2e3,
         id: "header"
     });
     $.__views.masterWindow.add($.__views.header);
     $.__views.imgPlaceHolder = Ti.UI.createImageView({
-        image: "",
         id: "imgPlaceHolder"
     });
     $.__views.header.add($.__views.imgPlaceHolder);
     $.__views.btnAndroidMenu = Ti.UI.createButton({
-        top: 10,
-        right: 10,
-        width: 40,
-        height: 40,
-        backgroundImage: "/images/menu.png",
-        backgroundSelectedImage: "/images/menuSelected.png",
+        visible: false,
         id: "btnAndroidMenu"
     });
     $.__views.header.add($.__views.btnAndroidMenu);
     $.__views.headerBottomBorder = Ti.UI.createView({
-        top: 61,
-        borderColor: "red",
-        borderWidth: 1,
-        height: 2,
-        zIndex: 2e3,
         id: "headerBottomBorder"
     });
     $.__views.masterWindow.add($.__views.headerBottomBorder);
@@ -117,9 +103,8 @@ function Controller() {
     });
     $.__views.menuWidget.setParent($.__views.masterWindow);
     $.__views.windowContainer = Ti.UI.createView({
-        top: 63,
-        id: "windowContainer",
-        backgroundColor: "orange"
+        backgroundColor: "orange",
+        id: "windowContainer"
     });
     $.__views.masterWindow.add($.__views.windowContainer);
     $.__views.__alloyId3 = Ti.UI.createView({
